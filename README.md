@@ -1,5 +1,5 @@
 
-# E. coli Whole-Genome Variant Analysis
+# E. coli Whole-Genome Variant Analizi
 ### <ins>Çalışma Hakkında </ins>
 Bu proje, E. coli genomuna ait [SRR21010776](https://www.ncbi.nlm.nih.gov/sra/?term=SRR21010776) numaralı ham dizileme verisinin kullanılarak kalite kontrolü, temizlenmesi, referans genoma hizalanması ve varyantların belirlenmesi amacıyla gerçekleştirilmiştir.
 Çalışmada ham dizileme verisinden başlayarak varyant sonuçlarının CSV formatında elde edilmesine kadar uzanan temel bir biyoinformatik analiz pipeline'ı uygulanmıştır.
