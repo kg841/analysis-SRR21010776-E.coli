@@ -1,8 +1,7 @@
-# analysis-SRR21010776-E.coli
 
-## E. coli Whole-Genome Variant Analysis
+# E. coli Whole-Genome Variant Analysis
 ### <ins>Çalışma Hakkında </ins>
-Bu proje, E. coli genomuna ait SRR21010776 numaralı ham dizileme verisinin kullanılarak kalite kontrolü, temizlenmesi, referans genoma hizalanması ve varyantların belirlenmesi amacıyla gerçekleştirilmiştir.
+Bu proje, E. coli genomuna ait [SRR21010776](https://www.ncbi.nlm.nih.gov/sra/?term=SRR21010776) numaralı ham dizileme verisinin kullanılarak kalite kontrolü, temizlenmesi, referans genoma hizalanması ve varyantların belirlenmesi amacıyla gerçekleştirilmiştir.
 Çalışmada ham dizileme verisinden başlayarak varyant sonuçlarının CSV formatında elde edilmesine kadar uzanan temel bir biyoinformatik analiz pipeline'ı uygulanmıştır.
 
 ### <ins>Çalışmanın Amacı</ins>
@@ -37,5 +36,6 @@ Pipeline'ın sonunda E. coli örneğine ait varyantlar belirlenmiş ve [varyantl
 **SAMtools** — SAM/BAM dosyalarının işlenmesi<br>
 **BCFtools** — Varyant çağırma ve varyant sonuçlarının işlenmesi<br>
 
-
-
+<br><br>
+**Analiz komutları (Pipeline Aşamaları) [pipline.sh]( pipline.sh) dosyasında yer almaktadır.** <br><br>
+[fastp_rapor.html](fastp_rapor.html) dosyası, veri temizleme aşamasında fastp tarafından üretilen kalite raporudur. Temizleme sonrası okumaların %98,17'si korunmuş, Q30 oranı %95,35'ten %96,01'e yükselmiştir.
