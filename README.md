@@ -1,7 +1,5 @@
 # analysis-SRR21010776-E.coli
 
-// <ins> </ins>
-
 ## E. coli Whole-Genome Variant Analysis
 ### <ins>Çalışma Hakkında </ins>
 Bu proje, E. coli genomuna ait SRR21010776 numaralı ham dizileme verisinin kullanılarak kalite kontrolü, temizlenmesi, referans genoma hizalanması ve varyantların belirlenmesi amacıyla gerçekleştirilmiştir.
@@ -18,7 +16,7 @@ Organizma: Escherichia coli<br>
 Veri tipi: Illumina paired-end dizileme verisi kullanılmıştır.<br>
 
 ### <ins>Çalışmanın Çıktısı</ins>
-Pipeline'ın sonunda E. coli örneğine ait varyantlar belirlenmiş ve varyantlar.csv dosyasında tablo halinde sunulmuştur.
+Pipeline'ın sonunda E. coli örneğine ait varyantlar belirlenmiş ve [varyantlar.csv](varyantlar.csv) dosyasında tablo halinde sunulmuştur.
 
 ### <ins>Kullanılan Araçlar</ins>
 **NCBI SRA** — Ham dizileme verisinin elde edilmesi<br>
