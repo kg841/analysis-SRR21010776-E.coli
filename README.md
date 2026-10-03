@@ -10,6 +10,16 @@ Bu çalışmanın temel amacı, [SRR21010776](https://www.ncbi.nlm.nih.gov/sra/?
 Analiz genel olarak şu aşamalardan oluşmaktadır:
 
 Ham veri → Kalite kontrol → Veri temizleme → Referans genom → Hizalama → BAM oluşturma → Varyant çağırma → Sonuçların CSV formatına aktarılması
+Ham veri → Kalite kontrol → Veri temizleme → Referans genom → Hizalama → BAM oluşturma → Varyant çağırma → CSV
+
+
+| 1. Veri indirme | Ham verinin SRA'dan alınıp FASTQ formatına çevrilmesi | SRA Toolkit |<br>
+| 2. Kalite kontrol | Ham okumaların kalitesinin değerlendirilmesi | FastQC |<br>
+| 3. Veri temizleme | Düşük kaliteli okumaların ve adaptörlerin temizlenmesi | fastp |<br>
+| 4. Hizalama | Temizlenmiş okumaların referans genoma hizalanması | BWA-MEM |<br>
+| 5. BAM işleme | SAM dosyasının BAM'e çevrilmesi, sıralanması ve indekslenmesi | SAMtools |<br>
+| 6. Varyant çağırma | Referanstan farklı bölgelerin belirlenmesi ve işlenmesi | BCFtools |<br>
+
 
 Veri : Analizde [NCBI](https://www.ncbi.nlm.nih.gov/) SRA veritabanında bulunan SRA Accession [SRR21010776](https://www.ncbi.nlm.nih.gov/sra/?term=SRR21010776) numarası<br>
 Organizma: Escherichia coli<br>
