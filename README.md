@@ -11,7 +11,7 @@ Analiz genel olarak şu aşamalardan oluşmaktadır:
 
 Ham veri → Kalite kontrol → Veri temizleme → Referans genom → Hizalama → BAM oluşturma → Varyant çağırma → Sonuçların CSV formatına aktarılması
 
-Kullanılan Veri : Analizde [NCBI](https://www.ncbi.nlm.nih.gov/) SRA veritabanında bulunan SRA Accession [SRR21010776](https://www.ncbi.nlm.nih.gov/sra/?term=SRR21010776) numarası<br>
+Veri : Analizde [NCBI](https://www.ncbi.nlm.nih.gov/) SRA veritabanında bulunan SRA Accession [SRR21010776](https://www.ncbi.nlm.nih.gov/sra/?term=SRR21010776) numarası<br>
 Organizma: Escherichia coli<br>
 Veri tipi: Illumina paired-end dizileme verisi kullanılmıştır.<br>
 
