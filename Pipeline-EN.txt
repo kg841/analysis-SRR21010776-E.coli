@@ -1,0 +1,50 @@
+# Step 1: Creating a file and opening it.
+mkdir -p analizEColi && cd analizEColi
+
+# Step 2: Downloading raw data from the SRA database (SRR...).
+prefetch SRR21010776
+
+# (Note: Raw data in SRA format is converted to FASTQ using the "fastq-dump" or "fasterq-dump" command.)
+fasterq-dump SRR21010776.sra --split-files
+
+
+# Step 3: Quality Control of Raw Data (FastQC)
+# (It assesses the raw read quality, adapter contamination, and GC content.)
+fastqc SRR21010776_1.fastq SRR21010776_2.fastq
+
+
+# Step 4: Quality Control and Read Trimming (fastp)**
+# (Düşük kaliteli bazları ve hatalı okumaları temizler, ileri analiz için filtreler)
+fastp -i SRR21010776_1.fastq -I SRR21010776_2.fastq -o temiz_1.fastq -O temiz_2.fastq --html fastp_rapor.html --json fastp_rapor.json
+
+
+
+# Step 5: Download and Extract the E. coli Reference Genome from NCBI**
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_cds_from_genomic.fna.gz
+gunzip GCF_000005845.2_ASM584v2_cds_from_genomic.fna.gz
+mv GCF_000005845.2_ASM584v2_cds_from_genomic.fna referans.fasta
+
+
+# Step 6: Index the Reference Genome for BWA and SAMtools
+bwa index referans.fasta
+samtools faidx referans.fasta
+
+
+# Step 7: Alignment to the Reference Genome Using BWA-MEM (Cleaned FASTQ Files Are Used)
+bwa mem referans.fasta temiz_1.fastq > hizalama.sam
+
+
+# Step 8: Convert the SAM File to BAM Format, Sort by Coordinate, and Index the BAM File**
+samtools view -bS hizalama.sam | samtools sort -o hizalama_sirali.bam
+samtools index hizalama_sirali.bam
+
+
+# Step 9: Variant Calling Using BCFtools
+bcftools mpileup -f referans.fasta hizalama_sirali.bam | bcftools call -mv -Ob -o varyantlar.bcf
+
+
+# Step 10: Tabulation (Converting the BCF File to CSV Format)
+bcftools query -f '%CHROM\t%POS\t%REF\t%ALT\t%QUAL\n' varyantlar.bcf | tr '\t' ',' > varyantlar.csv
+
+echo "Congratulations! The entire end-to-end pipeline has been successfully completed, and the varyantlar are ready in the variants.csv file!"
+
